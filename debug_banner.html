@@ -52,10 +52,9 @@
       justify-content: left;
     }
 
-    /* 修复：<a> 需要 position:relative，imgWord 的 absolute 才能相对它定位 */
+    /* BUG 复现：<a> 没有 position:relative，imgWord 的 absolute 无法相对它定位 */
     .van-swipe-item a {
       display: block;
-      position: relative;
       width: 100%;
       height: 100%;
     }
@@ -144,7 +143,7 @@
                :class="isAndroid ? 'android-imgPattern' : 'ios-imgPattern'"
                :src="item.pcpic"
                alt="" />
-          <span class="imgWord" :style="{'top': u.indexOf('wxworklocal') != -1 ? '140px' : '140px'}">
+          <span class="imgWord" :style="{'top': u.indexOf('wxworklocal') != -1 ? '140px' : '185px'}">
             <span class="imgWordWidth">{{ item.title }}</span>
           </span>
         </a>
@@ -163,7 +162,7 @@
                class="imgPattern"
                :src="item.pcpic"
                alt="" />
-          <span class="imgWord" :style="{'top': u.indexOf('wxworklocal') != -1 ? '140px' : '140px'}">
+          <span class="imgWord" :style="{'top': u.indexOf('wxworklocal') != -1 ? '140px' : '185px'}">
             <span class="imgWordWidth">{{ item.title }}</span>
           </span>
         </a>
